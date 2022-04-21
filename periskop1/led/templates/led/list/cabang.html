@@ -1,0 +1,62 @@
+{% extends "base.html"%} {% load static %}
+
+{% block page-title %}
+<h1> Cabang </h1>
+{% endblock page-title %}
+{% block page-position %}
+<li class="breadcrumb-item"><a href="#">List</a></li>
+<li class="breadcrumb-item active">Cabang</a></li>
+{% endblock page-position %}
+
+{% block container-1 %}
+
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">Cabang</h3>
+        <div class="card-tools">
+            <div class="input-group input-group-sm" style="width: 150px;">
+                <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+
+                <div class="input-group-append">
+                    <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body table-responsive p-0">
+        <table class="table table-hover text-nowrap">
+            <thead>
+                <tr>
+                    <th>Kode Cabang</th>
+                    <th>Tipe Cabang</th>
+                    <th>Nama Cabang</th>
+                    <th>Segmentasi</th> 
+                    <th>Status</th>
+                    <th>Update Date</th>
+                    
+
+                </tr>
+            </thead>
+            <tbody>
+                {% for data in kd_cabang %}
+                <tr>
+                    
+                    <td>{{data.kode_cabang}}</td>
+                    <td>{{data.tipe_cabang}}</td>
+                    <td>{{data.nama_cabang}}</td>
+                    <td>{{data.segmentasi}}</td>
+                    <td>{{data.status}}</td>
+                    <td>{{data.update_date}}</td>                
+                </tr>
+                {% endfor%}
+            </tbody>
+        </table>
+    </div>
+    <!-- /.card-body -->
+</div>
+
+
+
+
+{% endblock container-1 %}

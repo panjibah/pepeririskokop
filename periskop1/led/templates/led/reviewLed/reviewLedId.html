@@ -1,0 +1,152 @@
+{% extends "base.html"%} {% load static %}
+
+{% block page-title %}
+<h1> Review LED </h1>{% endblock page-title %}
+
+{% block page-position %}
+<li class="breadcrumb-item"><a href="#">LED Temporary</a></li>
+<li class="breadcrumb-item"><a href="#">Review LED </a></li>
+<li class="breadcrumb-item active">{{data.nomor_kasus}} </a></li>
+{% endblock page-position %}
+{% block container-1 %}
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">Detail Led</h3>
+        <div class="card-tools">
+            <div class="input-group input-group-sm" >
+                <a href="{% url 'editLed' data.id %}"><button type="button" class="btn btn-warning"> <i class="fa fa-fw fa-edit"></i>Edit</button></a>
+            </div>
+        </div>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body table-responsive p-0">
+        <table class="table table-hover text-nowrap">
+            <thead>
+                <tr>
+                    <th>No Kasus</th>
+                    <th>Tanggal Kejadian</th>
+                    <th>Tanggal Teridentifikasi</th>
+                    <th>Tanggal Input</th>
+                    <th>Tanggal Selesai</th> 
+                    <th>Tanggal Update</th> 
+                    <th>Jumlah Kasus</th>
+                    <th>Nama Pembuat</th>
+                    <th>Status</th>
+                    <th>Kode Cabang</th>
+                    <th>Kode Produk</th>
+                    <th>Nama Penemu</th>
+                    <th>Kode Kategori Kejadian</th>  
+                </tr>
+            </thead>
+            <tbody>
+                
+                <tr>
+                    <td><a href="">{{data.nomor_kasus}}</a></td>
+                    <td>{{data.tanggal_input}}</a> </td>
+                    <td>{{data.tanggal_teridentifikasi}}</td>
+                    <td>{{data.tanggal_input}}</td>
+                    <td>{{data.tanggal_selesai}}</td>
+                    <td>{{data.tanggal_update}}</td>
+                    <td>{{data.jumlah_kasus}}</td>
+                    <td>{{data.nama_pembuat}}</td>
+                    <td>{{data.status}}</td>
+                    <td>{{data.kode_cabang}}</td>
+                    <td>{{data.kode_produk}}</td>
+
+
+                    <td style="padding-left: 20px;">{{DataRA.status1}}</td>
+                   
+                </tr>
+                
+            </tbody>
+        </table>
+    </div>
+    <!-- /.card-body -->
+</div>
+
+
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">List Perubahan Data</h3>
+        <div class="card-tools">
+            <div class="input-group input-group-sm" style="width: 150px;">
+                <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+
+                <div class="input-group-append">
+                    <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body table-responsive p-0">
+        <table class="table table-hover text-nowrap">
+            <thead>
+                <tr>
+                    <th>No Kasus</th> 
+                    <th>Tanggal Update</th>    
+                    <th>Nama Kolom</th>
+                    <th>Data baru</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for dataChange in stateChange %}
+                <tr>
+                    <td><a href="">{{dataChange.nomor_kasus2}}</a></td>
+                    <td>{{dataChange.nomor_kasus2.tanggal_update}}</a> </td>
+                    <td>{{dataChange.nama_kolom}}</td>
+                    <td>{{dataChange.value}}</td>
+                    <td>
+                        <a href="{%url 'delStateChange' data.id dataChange.id %}" DataRA.id style="text-decoration: none; color: white;" ><button type="button" class="btn btn-danger"><i class="fa fa-fw fa-trash"></i> Delete</button></a>
+                        <a href="{%url 'replace' data.id  dataChange.nomor_kasus2.id   %}?column={{dataChange.nama_kolom}}&sc={{dataChange.id}}"><button type="button" class="btn btn-warning"> <i class="fa fa-fw fa-edit"></i>Replace</button></a>
+                        <a href="#"><button type="button" class="btn btn-warning">  <i class="fa fa-fw fa-edit"></i>Replace Row</button></a>
+
+                    </td>
+
+                    
+                   
+                </tr>
+                {% endfor%}
+            </tbody>
+        </table>
+    </div>
+    <!-- /.card-body -->
+</div>
+
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">Laporan yang Terhubung</h3>
+        <div class="card-tools">
+            <div class="input-group input-group-sm" style="width: 150px;">
+                <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+
+                <div class="input-group-append">
+                    <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body table-responsive p-0">
+        <table class="table table-hover text-nowrap">
+            <thead>
+                <tr>
+                    
+                    <th>Nama Laporan</th>    
+                </tr>
+            </thead>
+            <tbody>
+                {% for data in lprLinked %}
+                <tr>
+                    <td><a href="{% url 'listLedReport' data.id %}">{{data.nama}}</a></td>
+                   
+                </tr>
+                {% endfor%}
+            </tbody>
+        </table>
+    </div>
+    <!-- /.card-body -->
+</div>
+
+{% endblock container-1 %}

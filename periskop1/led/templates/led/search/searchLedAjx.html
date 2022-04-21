@@ -1,0 +1,502 @@
+{% extends "base.html"%} {% load static %}
+{% block style-container %}
+<link rel="stylesheet" href="{% static 'plugins/select2/css/select2.min.css'%}">
+<link rel="stylesheet" href="{% static 'plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css' %}">
+<link rel="stylesheet" href="{% static 'css/select2/select2.css' %}">
+<link rel="stylesheet" href="{% static 'css/styleEdit.css' %}">
+
+{% endblock style-container %}
+{% block page-title %}
+<h4>Search LED</h4>
+{% endblock page-title %}
+
+{% block page-position %}
+<li class="breadcrumb-item active"><a href="">Search LED</a></li>
+{% endblock page-position %}
+
+
+{% block container-1 %}
+
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">Search LED</h3>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body">
+
+        <form role="form" method="POST">
+            {% csrf_token %}
+            <!-- text input -->
+
+
+
+            <!-- select -->
+
+            <div class="dynamic_field">
+
+
+                <div class="row">
+                    <div class="col-sm-4">
+                        <!-- textarea -->
+                        <label>Periode Awal</label>
+                        <div class="form-group">
+                            <input type="date" id="date" class='form-control' name="start_prd" required>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <!-- textarea -->
+                        <label>Periode Akhir:</label>
+                        <div class="form-group">
+                            <input type="date" id="date" class='form-control' name="end_prd" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+
+                    <div class="col-md-3">
+        
+                        <label class="col-form-label">Tipe LED</label>
+                        <input type="text" class="form-control" name="tipe_led">
+                    </div>
+
+                    <div class="col-md-3">
+                        <label class="col-form-label">Status</label>
+                        <select class="select2bs4 select2-hidden-accessible" multiple="" data-placeholder=""
+                            style="width: 100%;" data-select2-id="20" tabindex="-1" aria-hidden="true" name="status">
+                            <option value="Baru"> Baru</option>
+                            <option value="Dalam Proses"> Dalam Proses</option>
+                            <option value="Dalam Persetujuan"> Dalam Persetujuan</option>
+                            <option value="Ditolak"> Ditolak</option>
+                            <option value="Selesai"> Selesai</option>
+                            <option value="Lainya"> Lainya</option>
+
+                        </select>
+                    </div>
+
+                    <div class="col-md-3">
+                        <label class="col-form-label">Kode Cabang</label>
+                        <select class="select2bs4 select2-hidden-accessible" multiple=""
+                            data-placeholder="Select a State" style="width: 100%;" data-select2-id="3" tabindex="-1"
+                            aria-hidden="true" name="kode_cabang">
+                            {% for cabang in kd_cabang %}
+                            <option value="{{cabang.id}}"> {{cabang.nama_cabang}} </option>
+                            {% endfor %}
+
+                        </select>
+                    </div>
+
+                    <div class="col-md-3">
+                        <label class="col-form-label">Produk</label>
+                        <select class="select2bs4 select2-hidden-accessible" multiple="" data-placeholder=""
+                            style="width: 100%;" data-select2-id="4" tabindex="-1" aria-hidden="true" name="produk">
+                            {% for produk in kd_produk %}
+                            <option value="{{produk.id}}"> {{ produk.kode_produk }} </option>
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                </div>
+                <div class="form-group row">
+
+                    <div class="col-md-3">
+                        <label class="col-form-label">Kategori Kejadian</label>
+                        <select class="select2bs4 select2-hidden-accessible" multiple=""
+                            data-placeholder="Select a State" style="width: 100%;" data-select2-id="5" tabindex="-1"
+                            aria-hidden="true" name="kategori_kejadian">
+                            {% for kejadian in kd_kejadian %}
+                            <option value="{{kejadian.id}}">{{kejadian.kode_kategori1}} - {{kejadian.nama_kategori1}}
+                            </option>
+                            {% endfor %}
+                        </select>
+
+                    </div>
+
+                    <div class="col-md-3">
+                        <label class="col-form-label">Kode Penyebab</label>
+                        <select class="select2bs4 select2-hidden-accessible" multiple="" data-placeholder=""
+                            style="width: 100%;" data-select2-id="6" tabindex="-1" aria-hidden="true"
+                            name="kode_penyebab">
+                            {% for penyebab in kd_penyebab %}
+
+                            <option value="{{penyebab.id}}">{{penyebab.kode_penyebab1}} - {{penyebab.nama_penyebab1}}
+                            </option>
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                    <div class="col-md-3">
+                        <label class="col-form-label">Bussiness Line</label>
+                        <select class="select2bs4 select2-hidden-accessible" multiple="" data-placeholder=""
+                            style="width: 100%;" data-select2-id="7" tabindex="-1" aria-hidden="true"
+                            name="business_line">
+                            {% for bl in kd_bl %}
+
+                            <option value="{{bl.id}}"> {{bl.nama}} </option>
+
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                </div>
+                <div class="form-group row">
+                    <div class="col-md-3">
+                        <label class="col-form-label">Kerugian Potensial Min</label>
+                        <input type="number" min="0" id="recovary" class='form-control' name="kerugian_potensial_min"
+                            value=""></input>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="col-form-label">Recovery Min</label>
+                        <input type="number" min="0" id="recovary" class='form-control' name="recovery_min"
+                            value=""></input>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="col-form-label">Kerugian Aktual Min</label>
+                        <input type="number" min="0" id="kerugian_aktual" class='form-control' name="kerugian_aktual_min"
+                            value=""></input>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-md-3">
+                        <label class="col-form-label">Kerugian Potensial Max</label>
+                        <input type="number" min="0" id="recovary" class='form-control' name="kerugian_potensial_max"
+                            value=""></input>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="col-form-label">Recovery Max</label>
+                        <input type="number" min="0" id="recovary" class='form-control' name="recovery_max"
+                            value=""></input>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="col-form-label">Kerugian Aktual Max</label>
+                        <input type="number" min="0" id="kerugian_aktual" class='form-control' name="kerugian_aktual_max"
+                            value=""></input>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-md-3">
+                        <label class="col-form-label">Reviewer</label>
+                        <input type="text" class="form-control" name="reviewer">
+                    </div>
+                    <div class="col-md-3">
+                        <label class="col-form-label">Hasil Review</label>
+                        <textarea name="hasil_review" cols="40" rows="5" class="form-control m-1"></textarea>
+
+                    </div>
+                    <div class="col-md-3">
+                        <label class="col-form-label">Summary Kejadian</label>
+                        <textarea name="summary_kejadian" cols="40" rows="5" class="form-control m-1"></textarea>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="col-form-label">Risiko Kredit</label>
+                        <input type="text" class="form-control" name="risiko_kredit">
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary">Search</button>
+            </div>
+
+        </form>
+    </div>
+    <!-- /.card-body -->
+</div>
+
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">List Led</h3>
+       
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body table-responsive p-0">
+        <table class="table table-hover text-nowrap">
+            <thead>
+                <tr>
+                    <th>No Kasus</th>
+                    <th>Tanggal Kejadian</th>
+                    <th>Tanggal Teridentifikasi</th>
+                    <th>Tanggal Input</th>
+                    <th>Tanggal Selesai</th>
+                    <th>Tanggal Update</th>
+                    <th>Jumlah Kasus</th>
+                    <th>Tipe LED</th>
+                    <th>Nama Pembuat</th>
+                    <th>Status</th>
+                    <th>Kode Cabang</th>
+                    <th>Kode Produk</th>
+                    <th>Nama Penemu</th>
+                    <th>Kode Kategori Kejadian</th>
+                    <th>Kode Penyebab</th>
+                    <th>Business Line</th>
+                    <th>COA biaya</th>
+                    <th>Mata Uang</th>
+                    <th>Nilai Tukar</th>
+                    <th>Kerugian Potensial</th>
+                    <th>RRA</th>
+                    <th>Recovery</th>
+                    <th>Kerugian Aktual</th>
+                    <th>Tnaggal Review</th>
+                    <th>Reviewer</th>
+                    <th>Hasil Review</th>
+                    <th>Keterangan Review</th>
+                    <th>Summary kejadian</th>
+                    <th>Kronologi kejadian</th>
+                    <th>Tindakan Unit Kerja</th>
+                    <th>Tindakan Perbaikan</th>
+                    <th>Dibuat Oleh</th>
+                    <th>Disetujui Oleh</th>
+                    <th>Risiko Kredit</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                {% for data in page_obj %}
+                <tr>
+                    <td>{{data.nomor_kasus}}</td>
+                    <td><a href=""></a>{{data.tanggal_kejadian}}</a> </td>
+                    <td>{{data.tanggal_teridentifikasi}}</td>
+                    <td>{{data.tanggal_input}}</td>
+                    <td>{{data.tanggal_selesai}}</td>
+                    <td>{{data.tanggal_update|default_if_none:''}}</td>
+                    <td>{{data.jumlah_kasus}}</td>
+                    <td>{{data.tipe_led}}</td>
+                    <td>{{data.nama_pembuat}}</td>
+                    <td>{{data.status}}</td>
+                    <td>{{data.kode_cabang}}</td>
+                    <td>{{data.kode_produk}}</td>
+                    <td>{{data.nama_penemu}}</td>
+                    <td>{{data.kode_ktg_kejadian}}</td>
+                    <td>{{data.kode_penyebab}}</td>
+                    <td>{{data.bussines_line}}</td>
+                    <td>{{data.coa_biaya}}</td>
+                    <td>{{data.mata_uang}}</td>
+                    <td>{{data.nilai_tukar}}</td>
+                    <td>{{data.kerugian_potensial}}</td>
+                    <td>{{data.rra}}</td>
+                    <td>{{data.recovery}}</td>
+                    <td>{{data.kerugian_aktual}}</td>
+                    <td>{{data.tanggal_review}}</td>
+                    <td>{{data.reviewer}}</td>
+                    <td>{{data.hasil_review}}</td>
+                    <td>{{data.keterangan_review}}</td>
+                    <td>{{data.summary_kejadian}}</td>
+                    <td>{{data.kronologi_kejadian}}</td>
+                    <td>{{data.tindakan_unit_kerja}}</td>
+                    <td>{{data.tindakan_perbaikan}}</td>
+                    <td>{{data.dibuat_oleh}}</td>
+                    <td>{{data.ditemukan_oleh}}</td>
+                    <td>{{data.disetujui_oleh}}</td>
+                    <td>{{data.risiko_kredit}}</td>
+
+
+                    <td style="padding-left: 20px;">{{DataRA.status1}}</td>
+
+
+
+                </tr>
+                {% endfor%}
+            </tbody>
+        </table>
+    </div>
+
+    <div class="form-group">
+        <div class="com-md-4">
+            <div class="label-form">Total LED :
+                <p>{{lenData}}</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- /.card-body -->
+</div>
+<div class="page-container">
+    <div class="clearfix ">
+        <div class="page-number">
+            <ul class="pagination align-right float-right mr-auto">
+                {% if page_obj.has_previous %}
+                <li {% if page_obj.number == 1 %} class="page-item active" {% endif %}><a class="page-link"
+                        href="?page=1&searchWord={{searchWord}}">&laquo; 1</a></li>
+                <li class="page-item"> <a class="page-link"
+                        href="?page={{ page_obj.previous_page_number }}&searchWord={{searchWord}}">Previous</a>
+                </li>
+                {% endif %}
+                {% if page_obj.has_next %}
+                <li class="page-item"> <a class="page-link"
+                        href="?page={{ page_obj.next_page_number }}&searchWord={{searchWord}}">Next</a></li>
+                <li class="page-item"> <a class="page-link"
+                        href="?page={{ page_obj.paginator.num_pages }}&searchWord={{searchWord}}">
+                        {{page_obj.paginator.num_pages}} &raquo;</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+    <div class="clearfix">
+        <div class="page-desc">
+            <ul class="pagination align-right float-right mr-auto">
+                Showing page {{page_obj.number}} of {{ page_obj.paginator.num_pages }}
+            </ul>
+
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock container-1 %}
+
+{% block script-container-1 %}
+
+<script>
+    function myFunction(val) {
+        var values = $('#kotax').val();
+        console.log(values)
+        console.log("4")
+    }
+
+    $(function () {
+
+
+
+        //Initialize Select2 Elements
+        $('.select2').select2()
+
+        //Initialize Select2 Elements
+        $('.select2bs4').select2({
+            theme: 'bootstrap4'
+        })
+        $('.selectTipeLed').select2({
+            theme: 'bootstrap4'
+        })
+        $('.selectStatus').select2({
+            theme: 'bootstrap4'
+        })
+        $('.selectPenyebab').select2({
+            theme: 'bootstrap4'
+        })
+        //Datemask dd/mm/yyyy
+        $('#datemask').inputmask('dd/mm/yyyy', { 'placeholder': 'dd/mm/yyyy' })
+        //Datemask2 mm/dd/yyyy
+        $('#datemask2').inputmask('mm/dd/yyyy', { 'placeholder': 'mm/dd/yyyy' })
+        //Money Euro
+        $('[data-mask]').inputmask()
+
+        //Date picker
+        $('#reservationdate').datetimepicker({
+            format: 'L'
+        });
+
+        //Date and time picker
+        $('#reservationdatetime').datetimepicker({ icons: { time: 'far fa-clock' } });
+
+        //Date range picker
+        $('#reservation').daterangepicker()
+        //Date range picker with time picker
+        $('#reservationtime').daterangepicker({
+            timePicker: true,
+            timePickerIncrement: 30,
+            locale: {
+                format: 'MM/DD/YYYY hh:mm A'
+            }
+        })
+        //Date range as a button
+        $('#daterange-btn').daterangepicker(
+            {
+                ranges: {
+                    'Today': [moment(), moment()],
+                    'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+                    'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+                    'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+                    'This Month': [moment().startOf('month'), moment().endOf('month')],
+                    'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+                },
+                startDate: moment().subtract(29, 'days'),
+                endDate: moment()
+            },
+            function (start, end) {
+                $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'))
+            }
+        )
+
+        //Timepicker
+        $('#timepicker').datetimepicker({
+            format: 'LT'
+        })
+
+        //Bootstrap Duallistbox
+        $('.duallistbox').bootstrapDualListbox()
+
+        //Colorpicker
+        $('.my-colorpicker1').colorpicker()
+        //color picker with addon
+        $('.my-colorpicker2').colorpicker()
+
+        $('.my-colorpicker2').on('colorpickerChange', function (event) {
+            $('.my-colorpicker2 .fa-square').css('color', event.color.toString());
+        })
+
+        $("input[data-bootstrap-switch]").each(function () {
+            $(this).bootstrapSwitch('state', $(this).prop('checked'));
+        })
+
+    })
+    // BS-Stepper Init
+    document.addEventListener('DOMContentLoaded', function () {
+        window.stepper = new Stepper(document.querySelector('.bs-stepper'))
+    })
+
+    // DropzoneJS Demo Code Start
+    Dropzone.autoDiscover = false
+
+    // Get the template HTML and remove it from the doumenthe template HTML and remove it from the doument
+    var previewNode = document.querySelector("#template")
+    previewNode.id = ""
+    var previewTemplate = previewNode.parentNode.innerHTML
+    previewNode.parentNode.removeChild(previewNode)
+
+    var myDropzone = new Dropzone(document.body, { // Make the whole body a dropzone
+        url: "/target-url", // Set the url
+        thumbnailWidth: 80,
+        thumbnailHeight: 80,
+        parallelUploads: 20,
+        previewTemplate: previewTemplate,
+        autoQueue: false, // Make sure the files aren't queued until manually added
+        previewsContainer: "#previews", // Define the container to display the previews
+        clickable: ".fileinput-button" // Define the element that should be used as click trigger to select files.
+    })
+
+    myDropzone.on("addedfile", function (file) {
+        // Hookup the start button
+        file.previewElement.querySelector(".start").onclick = function () { myDropzone.enqueueFile(file) }
+    })
+
+    // Update the total progress bar
+    myDropzone.on("totaluploadprogress", function (progress) {
+        document.querySelector("#total-progress .progress-bar").style.width = progress + "%"
+    })
+
+    myDropzone.on("sending", function (file) {
+        // Show the total progress bar when upload starts
+        document.querySelector("#total-progress").style.opacity = "1"
+        // And disable the start button
+        file.previewElement.querySelector(".start").setAttribute("disabled", "disabled")
+    })
+
+    // Hide the total progress bar when nothing's uploading anymore
+    myDropzone.on("queuecomplete", function (progress) {
+        document.querySelector("#total-progress").style.opacity = "0"
+    })
+
+    // Setup the buttons for all transfers
+    // The "add files" button doesn't need to be setup because the config
+    // `clickable` has already been specified.
+    document.querySelector("#actions .start").onclick = function () {
+        myDropzone.enqueueFiles(myDropzone.getFilesWithStatus(Dropzone.ADDED))
+    }
+    document.querySelector("#actions .cancel").onclick = function () {
+        myDropzone.removeAllFiles(true)
+    }
+    // DropzoneJS Demo Code End
+</script>
+{% endblock script-container-1 %}

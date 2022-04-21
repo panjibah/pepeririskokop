@@ -1,0 +1,549 @@
+{% extends "base.html"%} {% load static %}
+{% block style-container %}
+<!-- Select2 -->
+<link rel="stylesheet" href="{% static 'plugins/select2/css/select2.min.css'%}">
+<link rel="stylesheet" href="{% static 'plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css' %}">
+<link rel="stylesheet" href="{% static 'css/select2/select2.css' %}">
+<link rel="stylesheet" href="{% static 'css/styleEdit.css' %}">
+{% endblock style-container %}
+{% block page-title %}
+<h1> Edit LED </h1>
+{% endblock page-title %}
+{% block page-position %}
+<li class="breadcrumb-item"><a href="#">LED Temporary</a></li>
+<li class="breadcrumb-item"><a href="#">Review LED</a></li>
+<li class="breadcrumb-item"><a href="#">{{currLed.nomor_kasus}}</a></li>
+<li class="breadcrumb-item active">Edit LED</a></li>
+{% endblock page-position %}
+
+{% block container-1 %}
+
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">Buat Laporan Baru</h3>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body">
+        <form role="form" method="POST" action="{% url 'updateLed' currLed.id %}">
+            {% csrf_token %}
+            <!-- text input -->
+            <div class="d-flex justify-content-center mb-3">
+                <h6>IDENTIFIKASI KASUS</h6>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Nomor Kasus</label>
+                <div class="col-sm-3"><input type="text" class="form-control" name="no_kasus" id="no_kasus"
+                        value="{{currLed.nomor_kasus}}" disabled> </div>
+
+                <label class="col-sm-2 col-form-label">Dibuat Oleh</label>
+                <div class="col-sm-3"> <input type="text" id="dibuat_oleh" class='form-control' name="dibuat_oleh"
+                        value="{{currLed.dibuat_oleh}}"> </input>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Tanggal Input</label>
+                <div class="col-sm-3">
+                    <input type="date" id="tgl_input" class='form-control' name="tgl_input"
+                        value='{{currLed.tanggal_input| date:"Y-m-d"}}'>
+                </div>
+                <label class="col-sm-2 col-form-label">Tipe Kasus</label>
+                <div class="col-sm-3">
+                    <input type="text" id="tipe_led" class='form-control' name="tipe_kasus" value='{{currLed.tipe_led}}'
+                        disabled>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Kanwil/Divisi</label>
+                <div class="col-sm-3">
+                    <select class="form-control selectCabang " name="kode_kanwil" style=" width: 100%;" tabindex="-1"
+                        aria-hidden="true" disabled>
+                        <option selected="selected" style="height: 10em;">{{currLed.kode_cabang}}</option>
+                        {% for cabang in kd_cabang %}
+                        <option data-select22-id="cabang.id"> {{cabang.nama_cabang}} </option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">KCU / BIRO</label>
+                <div class="col-sm-3">
+                    <select class="form-control selectCabang" name="kode_kcu" style=" width: 100%;" tabindex="-1"
+                        aria-hidden="true" disabled>
+                        <option selected="selected" style="height: 10em;">{{currLed.kode_cabang}}</option>
+                        {% for cabang in kd_cabang %}
+                        <option data-select22-id="cabang.id"> {{cabang.segmentasi}} </option>
+                        {% endfor %}
+                    </select>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">UNIT KERJA</label>
+                <div class="col-sm-3">
+                    <select class="form-control selectCabang " name="kode_unit" style=" width: 100%;" tabindex="-1"
+                        aria-hidden="true">
+                        <option selected="selected" style="height: 10em;">{{currLed.kode_unit}}</option>
+                        {% for unit in kd_unit %}
+                        <option data-select22-id="cabang.id"> {{unit.kode_unit}} </option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <hr class="dashed">
+            <div class="d-flex justify-content-center mb-3">
+                <h6>DETIL KASUS</h6>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Tanggal Kejadian</label>
+                <div class="col-sm-3">
+                    <input type="date" id="tgl_kejadian" class='form-control' name="tgl_kejadian"
+                        value='{{currLed.tanggal_kejadian| date:"Y-m-d"}}'>
+
+                </div>
+
+                <label class="col-sm-2 col-form-label">Grup Produk</label>
+                <div class="col-sm-3">
+                    <select class="form-control selectProduk" name="kode_produk" style="width: 100%;" tabindex="-1"
+                        aria-hidden="true">
+                        <option selected="selected" style="height: 10em;" value="{{currLed.kode_produk.id}}">
+                            {{currLed.kode_produk}}</option>
+                        {% for produk in kd_produk %}
+                        <option data-select22-id="produk.id" value="{{produk.id}}"> {{ produk.kode_produk }} </option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row">
+
+                <label class="col-sm-2 col-form-label">Tanggal Teridentifikasi</label>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <input type="date" id="tgl_identifikasi" class='form-control' name="tgl_identifikasi"
+                            value='{{currLed.tanggal_teridentifikasi| date:"Y-m-d"}}'>
+                    </div>
+                </div>
+
+                <label class="col-sm-2 col-form-label">Nama Produk</label>
+                <div class="col-sm-3">
+                    <select class="form-control selectProduk" name="nama_produk" style="width: 100%;" tabindex="-1"
+                        aria-hidden="true">
+                        <option selected="selected" style="height: 10em;" value="{{currLed.kode_produk.id}}">
+                            {{currLed.kode_produk.nama_produk}}</option>
+                        {% for produk in kd_produk %}
+                        <option data-select22-id="cabang.id" value="{{produk.id}}"> {{ produk.nama_produk }} </option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Ditemukan Oleh</label>
+                <div class="col-sm-3">
+                    <input type="text" id="ditemukan_oleh" class='form-control' name="ditemukan_oleh"
+                        value="{{currLed.ditemukan_oleh}}"></input>
+                </div>
+
+                <label class="col-sm-2 col-form-label">Business Line</label>
+                <div class="col-sm-3">
+                    <select class="form-control selectBusiness " name="business_line" style=" width: 100%;"
+                        tabindex="-1" aria-hidden="true">
+                        <option selected="selected" style="height: 10em;" value="{{currLed.bussines_line.id}}">
+                            {{currLed.business_line.nama}}</option>
+                        {% for bl in ls_bl %}
+
+                        <option data-select22-id="cabang.id" value="{{currLed.bl.id}}"> {{bl.nama}} </option>
+
+                        {% endfor %}
+                    </select>
+                </div>
+
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Kategori Kejadian</label>
+                <div class="col-sm-3">
+                    <select class="form-control selectKtgKejadian" name="kode_kejadian" style=" width: 100%;"
+                        tabindex="-1" aria-hidden="true">
+                        <option selected="selected" style="height: 5em;" value="{{currLed.kode_ktg_kejadian.id}}">
+                            {{currLed.kode_ktg_kejadian}}</option>
+                        {% for kejadian in kt_kejadian %}
+                        <option data-select22-id="cabang.id" value="{{kejadian.id}}">{{kejadian.kode_kategori1}} -
+                            {{kejadian.nama_kategori1}}
+                        </option>
+                        {% endfor %}
+                    </select>
+
+                </div>
+
+
+            </div>
+
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Penyebab</label>
+                <div class="col-sm-3">
+                    <select class="form-control selectPenyebab " name="kode_penyebab" style=" width: 100%;"
+                        tabindex="-1" aria-hidden="true">
+                        <option selected="selected" style="height: 10em;" value="{{currLed.kode_penyebab.id}}">
+                            {{currLed.kode_penyebab}}</option>
+                        {% for penyebab in ls_penyebab %}
+                        <option data-select22-id="cabang.id" value="{{penyebab.id}}">{{penyebab.kode_penyebab1}} -
+                            {{penyebab.nama_penyebab1}}
+                        </option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+            </div>
+
+
+            <hr class="dashed">
+            <div class="d-flex justify-content-center mb-3">
+                <h6>SUMMARY KEJADIAN</h6>
+            </div>
+
+
+            <div class="row m-3">
+                <div class="col-sm-12">
+
+                    <div class="form-group">
+                        <textarea name="summary_kejadian" cols="40" rows="4" class="form-control"
+                            id="summary_kejadian">{{currLed.summary_kejadian}}</textarea>
+                    </div>
+                </div>
+
+
+            </div>
+            <hr class="dashed">
+            <div class="d-flex justify-content-center mb-3">
+                <h6>KRONOLOGI KEJADIAN</h6>
+            </div>
+
+            <div class="row m-3">
+                <div class="col-sm-12">
+
+                    <div class="form-group">
+                        <textarea name="kronologi_kejadian" cols="40" rows="4" class="form-control"
+                            id="kronologi_kejadian">{{currLed.kronologi_kejadian}}</textarea>
+                    </div>
+                </div>
+
+            </div>
+            <hr class="dashed">
+            <div class="d-flex justify-content-center mb-3">
+                <h6>TINDAKAN UNIT KERJA</h6>
+            </div>
+            <div class="row m-3">
+                <div class="col-sm-12">
+                    <div class="form-group ">
+                        <textarea name="tindakan_unit_kerja" cols="40" rows="4" class="form-control"
+                            id="tindakan_unit_kerja">{{currLed.tindakan_unit_kerja}}</textarea>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="dashed">
+            <div class="d-flex justify-content-center mb-3">
+                <h6>TINDAKAN PERBAIKAN</h6>
+            </div>
+            <div class="row m-3">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <textarea name="tindakan_perbaikan" cols="40" rows="4" class="form-control"
+                            id="tindakan_perbaikan">{{currLed.tindakan_perbaikan}}</textarea>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="dashed">
+            <div class="d-flex justify-content-center mb-3">
+                <h6>PIHAK TERKAIT</h6>
+            </div>
+            <div class="row m-3">
+                <div class="col-sm-12">
+                    <!-- <div class="form-group">
+                <textarea name="tindakan_perbaikan" cols="40" rows="4" class="form-control"
+                    id="tindakan_perbaikan">{{currLed.tindakan_perbaikan}}</textarea>
+            </div> -->
+                </div>
+            </div>
+
+            <hr class="dashed">
+            <div class="d-flex justify-content-center mb-3">
+                <h6>KERUGIAN POTENSIAL</h6>
+            </div>
+            <div class="row m-3">
+
+                <div class="col-sm-4">
+                    <!-- textarea -->
+                    <label>Mata Uang</label>
+                    <div class="form-group">
+                        <input type="text" id="mata_uang" class='form-control' name="mata_uang"
+                            value="{{currLed.mata_uang}}"></input>
+                    </div>
+                </div>
+
+                <div class="col-sm-4">
+                    <!-- textarea -->
+                    <label>Nilai Tukar</label>
+                    <div class="form-group">
+                        <input type="number" min="0" id="nial_tukar" class='form-control' name="nilai_tukar"
+                            value="{{currLed.nilai_tukar}}"></input>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <!-- textarea -->
+                    <label>Kerugian Potensial</label>
+                    <div class="form-group">
+                        <input type="number" min="0" id="kerugian_potensial" class='form-control'
+                            name="kerugian_potensial" value="{{currLed.kerugian_potensial}}"></input>
+                    </div>
+                </div>
+
+            </div>
+
+            <hr class="dashed">
+            <div class="d-flex justify-content-center mb-3">
+                <h6>JURNAL</h6>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Kerugian</h3>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body p-0">
+                    <table class="table table-sm">
+                        <thead>
+                            <tr>
+                                <th style="width: 10px">#</th>
+                                <th class="col-1">Tanggal</th>
+                                <th class="col-1">Db\Cr</th>
+                                <th class="col-2">COA</th>
+                                <th class="col-1">Mata Uang</th>
+                                <th class="col-1">Kurs</th>
+                                <th class="col-2">Jumlah 3</th>
+                                <th class="col-2">Jumlah 1</th>
+                                <th class="col-3">Keterangan</th>
+        
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for j in ls_journal %}
+                            <tr>
+                                <td>{{forloop.counter}}</td>
+        
+                                <td>{{j.tanggal_journal}}</td>
+                                <td>{{j.debet_kredit}}</td>
+                                <td>{{j.kode_coa}}</td>
+                                <td>{{j.kode_mata_uang}}</td>
+                                <td>kosong</td>
+                                <td>{{j.jumlah_nominal_asal}}</td>
+                                <td>{{j.jumlah_nominal_idr}}</td>
+                                <td>{{j.keterangan}}</td>
+                                <td>
+                                
+                            </tr>
+                            {% endfor %}
+        
+        
+        
+        
+                        </tbody>
+                    </table>
+                </div>
+                <!-- /.card-body -->
+            </div>
+
+            <hr class="dashed">
+            <div class="d-flex justify-content-center mb-3">
+                <h6>KERUGIAN AKTUAL</h6>
+            </div>
+            <div class="row m-3">
+                <div class="col-sm-4">
+                    <!-- textarea -->
+                    <label>RRA</label>
+                    <div class="form-group">
+                        <input type="number" min="0" id="rra" class='form-control' name="kode_rra_min"
+                            value="{{currLed.rra}}"></input>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <!-- textarea -->
+                    <label>Recovery</label>
+                    <div class="form-group">
+                        <input type="number" min="0" id="recovery" class='form-control' name="recovery_min"
+                            value="{{currLed.recovery}}"></input>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <!-- textarea -->
+                    <label>Kerugian Aktual</label>
+                    <div class="form-group">
+                        <input type="number" min="0" id="keraguan_aktual" class='form-control' name="kerugian_aktual_min"
+                            value="{{currLed.kerugian_aktual}}"></input>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+            <hr class="dashed">
+            <div class d-flex justify-content-center mb-3">
+                <h6>DLL</h6>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <label>Hasil Review</label>
+                    <div class="form-group">
+                        <textarea name="hasil_review" cols="40" rows="4" class="form-control"
+                            id="hasil_review">{{currLed.hasil_review}}</textarea>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <label>Keterangan Review</label>
+                    <div class="form-group">
+                        <textarea name="keterangan_review" cols="40" rows="4" class="form-control"
+                            id="keterangan_review">{{currLed.keterangan_review}}</textarea>
+                    </div>
+                </div>
+
+            </div>
+
+
+
+
+            <div class="row">
+                <div class="col-sm-4">
+                    <!-- textarea -->
+                    <label>Status</label>
+                    <div class="form-group">
+                        <input type="text" id="status" class='form-control' name="status" value='{{currLed.status}}'>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <!-- textarea -->
+                    <label>Jumlah Kasus</label>
+                    <div class="form-group">
+                        <input type="text" id="jml_kasus" class='form-control' name="jml_kasus"
+                            value='{{currLed.jumlah_kasus}}'></input>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <label>Risiko Kredit</label>
+                    <div class="form-group">
+                        <input type="text" id="risiko_kredit" class='form-control' name="risiko_kredit"
+                            value="{{currLed.risiko_kredit}}"></input>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="row">
+                <div class="col-sm-4">
+                    <!-- textarea -->
+                    <label>Tanggal Selesai</label>
+                    <div class="form-group">
+                        <input type="date" id="tgl_selesai" class='form-control' name="tgl_selesai"
+                            value='{{currLed.tanggal_selesai| date:"Y-m-d"}}'>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <!-- textarea -->
+                    <label>Tanggal Update</label>
+                    <div class="form-group">
+                        <input type="date" id="tgl_update" class='form-control' name="tgl_update"
+                            value='{{currLed.tanggal_update|date:"Y-m-d"}}' readonly>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <!-- textarea -->
+                    <label>Tanggal Review</label>
+                    <div class="form-group">
+                        <input type="date" id="tgl_review" class='form-control' name="tgl_review"
+                            value='{{currLed.tanggal_review| date:"Y-m-d"}}'>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <label>Dibuat Oleh</label>
+                    <div class="form-group">
+                        <input type="text" id="dibuat_oleh" class='form-control' name="dibuat_oleh"
+                            value="{{currLed.dibuat_oleh}}"></input>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <label>Disetujui Oleh</label>
+                    <div class="form-group">
+                        <input type="text" id="disetujui_oleh" class='form-control' name="disetujui_oleh"
+                            value="{{currLed.disetujui_oleh}}"></input>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+
+                    <!-- textarea -->
+                    <label>Reviewer</label>
+                    <div class="form-group">
+                        <input type="text" id="reviewer" class='form-control' name="reviewer"
+                            value="{{currLed.reviewer}}"></input>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group d-flex justify-content-center">
+                <div class="ml-4" style="width: 30em;">
+                    <div class="row ">
+
+                        <div class="col-4 ">
+                            <div class="form-group">
+                                <div class="">
+                                    <input type="submit" name="btn" value="Submit" class="btn btn-primary col-6"></input>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                        <div class="col-4 mr-3">
+                            <div class="form-group">
+                                <div class="">
+                                    <input type="submit" name="btn" value="Save" class="btn btn-primary col-6"></input>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+            </div>
+
+    </div>
+
+    </form>
+
+</div>
+<!-- /.card-body -->
+</div>
+
+{{ jj|json_script:"jj" }}
+
+{% endblock container-1 %}
+
+{% block script-container-1 %}
+
+<script>
+
+    const u = JSON.parse(document.getElementById('jj').textContent);
+    console.log(u);
+
+
+</script>
+
+
+{% endblock script-container-1 %}

@@ -1,0 +1,52 @@
+{% extends "base.html"%} {% load static %}
+
+{% block page-title %}
+<h1> Review LED </h1>{% endblock page-title %}
+{% block page-position %}
+<li class="breadcrumb-item"><a href="#">LED Temporary</a></li>
+<li class="breadcrumb-item active">Review LED</a></li>
+{% endblock page-position %}
+
+{% block container-1 %}
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">Led Update</h3>
+        <div class="card-tools">
+            <div class="input-group input-group-sm" style="width: 150px;">
+                <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+
+                <div class="input-group-append">
+                    <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body table-responsive p-0">
+        <table class="table table-hover text-nowrap">
+            <thead>
+                <tr>
+                    <th>No Kasus</th> 
+                    <th>Tanggal Input</th>    
+                </tr>
+            </thead>
+            <tbody>
+                {% for data in data %}
+                <tr>
+                    <td><a href="{% url 'reviewLedId' data.nomor_kasus.id  %}">{{data.nomor_kasus}}</a></td>
+                    <td>{{data.nomor_kasus.tanggal_input}}</a> </td>
+
+                    <td style="padding-left: 20px;">{{DataRA.status1}}</td>
+                   
+                </tr>
+                {% endfor%}
+            </tbody>
+        </table>
+    </div>
+    <!-- /.card-body -->
+</div>
+
+
+
+
+{% endblock container-1 %}

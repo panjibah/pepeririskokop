@@ -1,0 +1,181 @@
+[{
+    "model": "led.kategorikejadian",
+    "pk": 16,
+    "fields": {
+        "update_date": "2021-08-21",
+        "created_at": "1972-05-25T21:56:53Z",
+        "updated_at": "2013-05-29T01:09:54Z",
+        "kode_kategori1": "01",
+        "nama_kategori1": "Internaal Fraud",
+        "kode_kategori2": null,
+        "nama_kategori2": null,
+        "kode_kategori3": null,
+        "nama_kategori3": null,
+        "status"        :0
+       
+
+    }  
+},
+{
+    "model": "led.kategorikejadian",
+    "pk": 17,
+    "fields": {
+        "update_date":"2021-08-21",
+        "created_at": "1972-05-25T21:56:53Z",
+        "updated_at": "2013-05-29T01:09:54Z",
+        "kode_kategori1": "02",
+        "nama_kategori1": "External Fraud",
+        "kode_kategori2": null,
+        "nama_kategori2": null,
+        "kode_kategori3": null,
+        "nama_kategori3": null,
+        "status"        :0
+       
+
+    }  
+},{
+    "model": "led.kategorikejadian",
+    "pk": 18,
+    "fields": {
+        "update_date": "2021-08-21",
+        "created_at": "1972-05-25T21:56:53Z",
+        "updated_at": "2013-05-29T01:09:54Z",
+        "kode_kategori1": "03",
+        "nama_kategori1": "Praktek Ketenagakerjaan & Keselamatan Tempat Kerja",
+        "kode_kategori2": null,
+        "nama_kategori2": null,
+        "kode_kategori3": null,
+        "nama_kategori3": null,
+        "status"        :0
+       
+
+    }  
+},
+{
+    "model": "led.kategorikejadian",
+    "pk": 19,
+    "fields": {
+        "update_date": "2021-08-21",
+        "created_at": "1972-05-25T21:56:53Z",
+        "updated_at": "2013-05-29T01:09:54Z",
+        "kode_kategori1": "04",
+        "nama_kategori1": "Nasabah, produk & praktek bisnis",
+        "kode_kategori2": null,
+        "nama_kategori2": null,
+        "kode_kategori3": null,
+        "nama_kategori3": null,
+        "status"        :0
+       
+
+    }  
+},
+{
+    "model": "led.kategorikejadian",
+    "pk": 20,
+    "fields": {
+        "update_date": "2021-08-21",
+        "created_at": "1972-05-25T21:56:53Z",
+        "updated_at": "2013-05-29T01:09:54Z",
+        "kode_kategori1": "05",
+        "nama_kategori1": "Kerusakan Aset Fisik",
+        "kode_kategori2": null,
+        "nama_kategori2": null,
+        "kode_kategori3": null,
+        "nama_kategori3": null,
+        "status"        :0
+       
+
+    }  
+},
+{
+    "model": "led.kategorikejadian",
+    "pk": 21,
+    "fields": {
+        "update_date": "2021-08-21",
+        "created_at": "1972-05-25T21:56:53Z",
+        "updated_at": "2013-05-29T01:09:54Z",
+        "kode_kategori1": "06",
+        "nama_kategori1": "Gangguan Bisnis & Kegagalan Sistem",
+        "kode_kategori2": null,
+        "nama_kategori2": null,
+        "kode_kategori3": null,
+        "nama_kategori3": null,
+        "status"        :0
+       
+
+    }  
+},
+{
+    "model": "led.kategorikejadian",
+    "pk": 22,
+    "fields": {
+        "update_date": "2021-08-21",
+        "created_at": "1972-05-25T21:56:53Z",
+        "updated_at": "2013-05-29T01:09:54Z",
+        "kode_kategori1": "07",
+        "nama_kategori1": "Pelayanan, Eksekusi & Proses  Manajemen",
+        "kode_kategori2": null,
+        "nama_kategori2": null,
+        "kode_kategori3": null,
+        "nama_kategori3": null,
+        "status"        :0
+       
+
+    }  
+},
+{
+    "model": "led.kategorikejadian",
+    "pk": 23,
+    "fields": {
+        "update_date": "2021-08-21",
+        "created_at": "1972-05-25T21:56:53Z",
+        "updated_at": "2013-05-29T01:09:54Z",
+        "kode_kategori1": "01",
+        "nama_kategori1": "Internal Fraud",
+        "kode_kategori2": "01.01",
+        "nama_kategori2": "Aktivitas yang tidak diotorisasi",
+        "kode_kategori3": "01.01.0001",
+        "nama_kategori3": "Penyalahgunaan kartu ATM/Internet Banking/Token KeyBCA/Mobile Banking/kartu kredit/Flazz dan Fleet Card oleh pihak internal",
+        "status"        :0
+       
+
+    }  
+},
+{
+    "model": "led.kategorikejadian",
+    "pk": 24,
+    "fields": {
+        "update_date": "2021-08-21",
+        "created_at": "1972-05-25T21:56:53Z",
+        "updated_at": "2013-05-29T01:09:54Z",
+        "kode_kategori1": "01",
+        "nama_kategori1": "Internal Fraud",
+        "kode_kategori2": "01.01",
+        "nama_kategori2": "Aktivitas yang tidak diotorisasi",
+        "kode_kategori3": "01.01.0002",
+        "nama_kategori3": "Penyalahgunaan dalam penutupan rekening/pencairan deposito",
+        "status"        :0
+       
+
+    }  
+},
+{
+    "model": "led.kategorikejadian",
+    "pk": 25,
+    "fields": {
+        "update_date": "2021-08-21",
+        "created_at": "1972-05-25T21:56:53Z",
+        "updated_at": "2013-05-29T01:09:54Z",
+        "kode_kategori1": "01",
+        "nama_kategori1": "Internal Fraud",
+        "kode_kategori2": "01.01",
+        "nama_kategori2": "Aktivitas yang tidak diotorisasi",
+        "kode_kategori3": "01.01.0003",
+        "nama_kategori3": "Sabotase server",
+        "status"        :0
+       
+
+    }  
+}
+
+]

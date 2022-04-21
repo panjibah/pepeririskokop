@@ -1,0 +1,62 @@
+{% extends "base.html"%} {% load static %}
+
+{% block page-title %}
+<h1> Kategori Kejadian </h1>
+{% endblock page-title %}
+{% block page-position %}
+<li class="breadcrumb-item"><a href="#">List</a></li>
+<li class="breadcrumb-item active">Kategori Kejadian</a></li>
+{% endblock page-position %}
+
+{% block container-1 %}
+
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">Kategori Kejadian</h3>
+        <div class="card-tools">
+            <div class="input-group input-group-sm" style="width: 150px;">
+                <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+                <div class="input-group-append">
+                    <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body table-responsive p-0">
+        <table class="table table-hover text-nowrap">
+            <thead>
+                <tr>
+                    <th>Kode Penyebab Risiko Level 1</th>
+                    <th>Nama Penyebab Risiko Level 1</th>
+                    <th>Kode Penyebab Risiko Level 2</th>
+                    <th>Nama Penyebab Risiko Level 2</th>
+                    <th>Kode Penyebab Risiko Level 3</th>
+                    <th>Nama Penyebab Risiko Level 3</th>
+                    <th>Status</th>
+                    <th>Update Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for data in ls_penyebab %}
+                <tr>
+                    <td>{{data.kode_penyebab1}}</td>
+                    <td>{{data.nama_penyebab1}}</td>
+                    <td>{{data.kode_penyebab2}}</td>
+                    <td>{{data.nama_penyebab2}}</td>
+                    <td>{{data.kode_penyebab3}}</td>
+                    <td>{{data.nama_penyebab3}}</td>
+                    <td>{{data.status}}</td>
+                    <td>{{data.update_date}}</td>                
+                </tr>
+                {% endfor%}
+            </tbody>
+        </table>
+    </div>
+    <!-- /.card-body -->
+</div>
+
+
+
+
+{% endblock container-1 %}

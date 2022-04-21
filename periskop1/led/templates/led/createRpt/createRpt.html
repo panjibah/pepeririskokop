@@ -1,0 +1,78 @@
+{% extends "base.html"%} 
+
+{% block page-title %}
+<h1> Buat Laporan </h1>
+{% endblock page-title %}
+
+{% block page-position %}
+<li class="breadcrumb-item"><a href="#">LED Temporary</a></li>
+<li class="breadcrumb-item active">Buat Laporan</a></li>
+{% endblock page-position %}
+
+{% block container-1 %}
+
+
+
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">Buat Laporan Baru</h3>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body">
+        <form role="form" method="POST">
+            {% csrf_token %}
+            <!-- text input -->
+
+            <div class="form-group">
+                <label>Judul Laporan</label>
+                <input type="text" class="form-control" placeholder="Judul" name="judul">
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <!-- textarea -->
+                    <label>Kategori</label>
+                    <select class="form-control" name="kategori"
+                                    style="height: 3em; margin-bottom: 3px;">
+                                    <option value="None" selected>None</option>
+                                    {%for kategori in kategori %}
+                                    <option>{{kategori.nama}}</option>
+                                    {% endfor %}
+                                </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <!-- textarea -->
+                    <label>Periode Awal</label>
+                    <div class="form-group">
+                        <input type="date" id="date" class='form-control' name="start_prd">
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <!-- textarea -->
+                    <label>Periode Akhir:</label>
+                    <div class="form-group">
+
+                        <input type="date" id="date" class='form-control' name="end_prd">
+
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary">Create</button>
+            </div>
+
+        </form>
+    </div>
+    <!-- /.card-body -->
+</div>
+
+
+
+
+{% endblock container-1 %}

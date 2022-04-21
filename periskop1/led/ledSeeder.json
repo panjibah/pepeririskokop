@@ -1,0 +1,345 @@
+[
+    {
+        "model": "led.laporan",
+        "pk": 6,
+        "fields": {
+            "deleted_at": null,
+            "nama": "Important appear walk it. Kind recognize any second may.\nChange best news. Space one remember partner growth expect between. Easy themselves always help so maybe.",
+            "periode_awal": "2004-11-24",
+            "periode_akhir": "2010-10-10",
+            "status": 7556,
+            "creator": "Record someone military simple toward rate. Cultural try summer popular experience list eight."
+        }
+    },
+    {
+        "model": "led.led",
+        "pk": 16,
+        "fields": {
+            "deleted_at": null,
+            "nomor_kasus": "0938300521-8304-L",
+            "tanggal_kejadian": "2003-01-18",
+            "tanggal_teridentifikasi": "2003-01-18",
+            "tanggal_input": "1971-08-21",
+            "tanggal_selesai": "1983-06-30",
+            "tanggal_update": "1978-02-18T12:53:26Z",
+            "jumlah_kasus": 5298,
+            "nama_pembuat": "Draw significant sell building shoulder suggest. Simple crime system herself response majority.",
+            "status": "As computer floor door pay up enter.",
+            "kode_cabang": 7,
+            "kode_produk": 14,
+            "nama_penemu": "Their meeting wife operation.\nSince road society official government gas.",
+            "kode_ktg_kejadian": "Place gun to light.",
+            "kode_penyebab": "Grow keep site.",
+            "coa_biaya": -6366762605542953557,
+            "mata_uang": "Drug.",
+            "nilai_tukar": 13919,
+            "kerugian_potensial": -5897378318697373138,
+            "rra": 6328708944106519179,
+            "recovery": -6385607385267134766,
+            "kerugian_aktual": -824261160112919873,
+            "tanggal_review": "2014-01-04",
+            "reviewer": "Window meet course.",
+            "hasil_review": "Member range magazine program. Question visit material attack camera. Society people bring become bad risk important.",
+            "keterangan_review": "Radio common head carry director people either. Financial nor person seem wrong TV do contain. Item or memory else.\nSecurity machine real return her may company. School side cut.",
+            "summary_kejadian": "Listen serve he which among art. Present dinner program join fall enjoy.\nModel explain condition expect. Outside near professor finish seven she.",
+            "kronologi_kejadian": "Thought policy difficult face. Participant paper ten sell. Break my debate standard experience discuss eat foreign.",
+            "tindakan_unit_kerja": "Instead attack city floor language interest. Kid authority of face method.\nSpend need only soldier light. Together choose hotel clearly fire put gas. Nation central picture each play oil their.",
+            "tindakan_perbaikan": "Discover federal window hard compare blood fear. About conference over organization. Exactly seven although ago box black short upon.\nNone between item simply. Eat energy explain.",
+            "dibuat_oleh": "Store quality recent under everything run travel. Raise table board able.",
+            "disetujui_oleh": "Total blood receive here recent south finish. Draw mission receive community true able.",
+            "risiko_kredit": "Her describe.",
+            "created_at": "2004-06-27T19:13:23Z",
+            "updated_at": "2004-06-27T19:13:23Z"
+        }
+    },
+    {
+        "model": "led.ledlaporan",
+        "pk": 16,
+        "fields": {
+            "deleted_at": null,
+            "laporan_id": 6,
+            "nomor_kasus": "0938300521-8304-L",
+            "tanggal_kejadian": "2003-01-18",
+            "tanggal_teridentifikasi": "2003-01-18",
+            "tanggal_input": "1971-08-21",
+            "tanggal_selesai": "1983-06-30",
+            "tanggal_update": "1978-02-18T12:53:26Z",
+            "jumlah_kasus": 5298,
+            "nama_pembuat": "Draw significant sell building shoulder suggest. Simple crime system herself response majority.",
+            "status": "As computer floor door pay up enter.",
+            "kode_cabang": 7,
+            "kode_produk": 14,
+            "nama_penemu": "Their meeting wife operation.\nSince road society official government gas.",
+            "kode_ktg_kejadian": 16,
+            "kode_penyebab": 16,
+            "coa_biaya": -6366762605542953557,
+            "mata_uang": "Drug.",
+            "nilai_tukar": 13919,
+            "kerugian_potensial": -5897378318697373138,
+            "rra": 6328708944106519179,
+            "recovery": -6385607385267134766,
+            "kerugian_aktual": -824261160112919873,
+            "tanggal_review": "2014-01-04",
+            "reviewer": "Window meet course.",
+            "hasil_review": "Member range magazine program. Question visit material attack camera. Society people bring become bad risk important.",
+            "keterangan_review": "Radio common head carry director people either. Financial nor person seem wrong TV do contain. Item or memory else.\nSecurity machine real return her may company. School side cut.",
+            "summary_kejadian": "Listen serve he which among art. Present dinner program join fall enjoy.\nModel explain condition expect. Outside near professor finish seven she.",
+            "kronologi_kejadian": "Thought policy difficult face. Participant paper ten sell. Break my debate standard experience discuss eat foreign.",
+            "tindakan_unit_kerja": "Instead attack city floor language interest. Kid authority of face method.\nSpend need only soldier light. Together choose hotel clearly fire put gas. Nation central picture each play oil their.",
+            "tindakan_perbaikan": "Discover federal window hard compare blood fear. About conference over organization. Exactly seven although ago box black short upon.\nNone between item simply. Eat energy explain.",
+            "dibuat_oleh": "Store quality recent under everything run travel. Raise table board able.",
+            "disetujui_oleh": "Total blood receive here recent south finish. Draw mission receive community true able.",
+            "risiko_kredit": "Her describe.",
+            "created_at": "2004-06-27T19:13:23Z",
+            "updated_at": "2004-06-27T19:13:23Z"
+        }
+    },
+    {
+        "model": "led.kategorikejadian",
+        "pk": 16,
+        "fields": {
+            "deleted_at": null,
+            "kode_kategori": "01.01.0001",
+            "nama_kategori": "Penyalahgunaan kartu ATM/Internet Banking/Token KeyBCA/Mobile Banking/kartu kredit/Flazz dan Fleet Card oleh pihak internal",
+            "update_date": "2004-06-27",
+            "created_at": "2004-06-27T19:13:23Z",
+            "updated_at": "2004-06-27T19:13:23Z"
+        }
+    },
+    {
+        "model": "led.kategorikejadian",
+        "pk": 17,
+        "fields": {
+            "deleted_at": null,
+            "kode_kategori": "01.01.0002",
+            "nama_kategori": "Aktivitas yang tidak diotorisasi",
+            "update_date": "2004-06-27",
+            "created_at": "2004-06-27T19:13:23Z",
+            "updated_at": "2004-06-27T19:13:23Z"
+        }
+    },
+    {
+        "model": "led.penyebab",
+        "pk": 16,
+        "fields": {
+            "deleted_at": null,
+            "kode_penyebab": "01.03.04",
+            "nama_penyebab": "Ketidakcukupan / kegagalan proses",
+            "update_date": "2003-01-18",
+            "created_at": "2003-01-18T05:05:02Z",
+            "updated_at": "2003-01-18T23:36:51Z"
+        }
+    },
+    {
+        "model": "led.penyebab",
+        "pk": 17,
+        "fields": {
+            "deleted_at": null,
+            "kode_penyebab": "01.03.01",
+            "nama_penyebab": "Wewenang / limit yang diberikan tidak jelas, tidak terkini dan tidak tertulis",
+            "update_date": "2003-01-18",
+            "created_at": "2003-01-18T05:05:02Z",
+            "updated_at": "2003-01-18T23:36:51Z"
+        }
+    },
+    {
+        "model": "led.unit",
+        "pk": 16,
+        "fields": {
+            "deleted_at": null,
+            "kode_unit": "Project.",
+            "nama_unit": "Wonder treat book child grow. Culture most training area arm business. Act trial democratic pass item.\nTheir miss by area many onto. Six recently between however stay pattern leader.",
+            "update_date": "2010-10-07",
+            "created_at": "2004-06-27T19:13:23Z",
+            "updated_at": "2009-12-18T12:47:18Z"
+        }
+    },
+    {
+        "model": "led.cabang",
+        "pk": 16,
+        "fields": {
+            "deleted_at": null,
+            "kode_cabang": "D093",
+            "tipe_cabang": "Across.",
+            "nama_cabang": "Sentra Layanan Pembayaran Domestik",
+            "segmentasi": "Decision capital.",
+            "status": "Tidak Aktif",
+            "update_date": "2010-10-07",
+            "created_at": "1977-02-24T10:22:13Z",
+            "updated_at": "2009-12-18T12:47:18Z"
+        }
+    },
+    {
+        "model": "led.businessline",
+        "pk": 16,
+        "fields": {
+            "deleted_at": null,
+            "kode_bisnis": "0010",
+            "nama": "Business Corp",
+            "status": "Tidak Aktif",
+            "update_date": "2010-10-07",
+            "created_at": "2009-12-18T12:47:18Z",
+            "updated_at": "2009-12-18T12:47:18Z"
+        }
+    },
+    {
+        "model": "led.businessline",
+        "pk": 17,
+        "fields": {
+            "deleted_at": null,
+            "kode_bisnis": "01",
+            "nama": "Corporate Finance",
+            "status": "Tidak Aktif",
+            "update_date": "2010-10-07",
+            "created_at": "2009-12-18T12:47:18Z",
+            "updated_at": "2009-12-18T12:47:18Z"
+        }
+    },
+    {
+        "model": "led.produk",
+        "pk": 16,
+        "fields": {
+            "deleted_at": null,
+            "kode_produk": "000",
+            "tipe_produk": "Kas",
+            "nama_produk": "Kas",
+            "status": "Aktif",
+            "update_date": "2014-11-26",
+            "created_at": "2009-12-18T12:47:18Z",
+            "updated_at": "2009-12-18T12:47:18Z"
+        }
+    },
+    {
+        "model": "led.produk",
+        "pk": 17,
+        "fields": {
+            "deleted_at": null,
+            "kode_produk": "001",
+            "tipe_produk": "Kas",
+            "nama_produk": "Kas",
+            "status": "Aktif",
+            "update_date": "2014-11-26",
+            "created_at": "2009-12-18T12:47:18Z",
+            "updated_at": "2009-12-18T12:47:18Z"
+        }
+    },
+    {
+        "model": "led.coa",
+        "pk": 1,
+        "fields": {
+            "deleted_at": null,
+            "kode_coa": "00.000",
+            "nama": "Jurnal Dummy (Tidak Dicetak di GMS)",
+            "status": "Aktif",
+            "update_date": "2014-11-26",
+            "created_at": "2016-12-23T16:28:47Z",
+            "updated_at": "2017-12-23T16:28:47Z"
+        }
+    }
+]
+
+{'values_changed': {
+        "root['list'][1]": {'new_value': 'two', 'old_value': 'twox'
+        },
+        "root['number']": {'new_value': 2, 'old_value': 1
+        }
+    }
+}
+"{\"values_changed\": {\"root['list'][1]\": {\"new_value\": \"two\", \"old_value\": \"twox\"}, \"root['number']\": {\"new_value\": 2, \"old_value\": 1}}}"
+
+
+    {'values_changed': {'root': {'new_value': '[
+                {
+                    "model": "led.led",
+                    "pk": 18,
+                    "fields": {
+                        "deleted_at": null,
+                        "nomor_kasus": "0938300521-8304-L",
+                        "tanggal_kejadian": "2005-01-18",
+                        "tanggal_teridentifikasi": "2003-01-18",
+                        "tanggal_input": "1971-08-21",
+                        "tanggal_selesai": "1983-06-30",
+                        "tanggal_update": "2008-02-18T12:53:26Z",
+                        "jumlah_kasus": 5298,
+                        "nama_pembuat": "Doganti nilai tukar",
+                        "status": "As computer floor door pay up enter.",
+                        "kode_cabang": 7,
+                        "kode_produk": 14,
+                        "nama_penemu": "Their meeting wife operation.\\nSince road society official government gas.",
+                        "kode_ktg_kejadian": "Place gun to light.",
+                        "kode_penyebab": "Grow keep site.",
+                        "coa_biaya": 700000,
+                        "mata_uang": "Drug.",
+                        "nilai_tukar": 13919,
+                        "kerugian_potensial": -5897378318697373138,
+                        "rra": 6328708944106519179,
+                        "recovery": -6385607385267134766,
+                        "kerugian_aktual": -824261160112919873,
+                        "tanggal_review": "2014-01-04",
+                        "reviewer": "Window meet course.",
+                        "hasil_review": "Member range magazine program. Question visit material attack camera. Society people bring become bad risk important.",
+                        "keterangan_review": "Radio common head carry director people either. Financial nor person seem wrong TV do contain. Item or memory else.\\nSecurity machine real return her may company. School side cut.",
+                        "summary_kejadian": "Listen serve he which among art. Present dinner program join fall enjoy.\\nModel explain condition expect. Outside near professor finish seven she.",
+                        "kronologi_kejadian": "Thought policy difficult face. Participant paper ten sell. Break my debate standard experience discuss eat foreign.",
+                        "tindakan_unit_kerja": "Instead attack city floor language interest. Kid authority of face method.\\nSpend need only soldier light. Together choose hotel clearly fire put gas. Nation central picture each play oil their.",
+                        "tindakan_perbaikan": "Discover federal window hard compare blood fear. About conference over organization. Exactly seven although ago box black short upon.\\nNone between item simply. Eat energy explain.",
+                        "dibuat_oleh": "Store quality recent under everything run travel. Raise table board able.",
+                        "disetujui_oleh": "Total blood receive here recent south finish. Draw mission receive community true able.",
+                        "risiko_kredit": "Her describe.",
+                        "created_at": "2004-06-27T19:13:23Z",
+                        "updated_at": "2004-06-27T19:13:23Z"
+                    }
+                }
+            ]', 'old_value': '[
+                {
+                    "model": "led.led",
+                    "pk": 16,
+                    "fields": {
+                        "deleted_at": null,
+                        "nomor_kasus": "0938300521-8304-L",
+                        "tanggal_kejadian": "2003-01-18",
+                        "tanggal_teridentifikasi": "2003-01-18",
+                        "tanggal_input": "1971-08-21",
+                        "tanggal_selesai": "1983-06-30",
+                        "tanggal_update": "1978-02-18T12:53:26Z",
+                        "jumlah_kasus": 5298,
+                        "nama_pembuat": "Draw significant sell building shoulder suggest. Simple crime system herself response majority.",
+                        "status": "As computer floor door pay up enter.",
+                        "kode_cabang": 7,
+                        "kode_produk": 14,
+                        "nama_penemu": "Their meeting wife operation.\\nSince road society official government gas.",
+                        "kode_ktg_kejadian": "Place gun to light.",
+                        "kode_penyebab": "Grow keep site.",
+                        "coa_biaya": -6366762605542953557,
+                        "mata_uang": "Drug.",
+                        "nilai_tukar": 13919,
+                        "kerugian_potensial": -5897378318697373138,
+                        "rra": 6328708944106519179,
+                        "recovery": -6385607385267134766,
+                        "kerugian_aktual": -824261160112919873,
+                        "tanggal_review": "2014-01-04",
+                        "reviewer": "Window meet course.",
+                        "hasil_review": "Member range magazine program. Question visit material attack camera. Society people bring become bad risk important.",
+                        "keterangan_review": "Radio common head carry director people either. Financial nor person seem wrong TV do contain. Item or memory else.\\nSecurity machine real return her may company. School side cut.",
+                        "summary_kejadian": "Listen serve he which among art. Present dinner program join fall enjoy.\\nModel explain condition expect. Outside near professor finish seven she.",
+                        "kronologi_kejadian": "Thought policy difficult face. Participant paper ten sell. Break my debate standard experience discuss eat foreign.",
+                        "tindakan_unit_kerja": "Instead attack city floor language interest. Kid authority of face method.\\nSpend need only soldier light. Together choose hotel clearly fire put gas. Nation central picture each play oil their.",
+                        "tindakan_perbaikan": "Discover federal window hard compare blood fear. About conference over organization. Exactly seven although ago box black short upon.\\nNone between item simply. Eat energy explain.",
+                        "dibuat_oleh": "Store quality recent under everything run travel. Raise table board able.",
+                        "disetujui_oleh": "Total blood receive here recent south finish. Draw mission receive community true able.",
+                        "risiko_kredit": "Her describe.",
+                        "created_at": "2004-06-27T19:13:23Z",
+                        "updated_at": "2004-06-27T19:13:23Z"
+                    }
+                }
+            ]'
+        }
+    }
+}
+
+{
+    "root['nomor_kasus']": {'new_value': '0938300521-8304-LL', 'old_value': '0938300521-8304-L'
+    },
+    "root['mata_uang']": {'new_value': 'Drugs.', 'old_value': 'Drug.'
+    }
+}

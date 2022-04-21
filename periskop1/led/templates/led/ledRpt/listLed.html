@@ -1,0 +1,170 @@
+{% extends "base.html"%} {% load static %}
+{% block style-container %}
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+{% endblock style-container %}
+
+
+
+{% block page-title %}
+<h1> Detail Laporan</h1>
+{% endblock page-title %}
+
+{% block page-position %}
+<li class="breadcrumb-item"><a href="#">LED Temporary</a></li>
+<li class="breadcrumb-item"><a href="#">List Laporan</a></li>
+<li class="breadcrumb-item active">{{laporan.nama}}</li>
+{% endblock page-position %}
+
+
+
+{% block container-1 %}
+
+<div class="buttonGroup d-flex justify-content-end mr-2">
+    <div class="form-group row">
+        <div class="form-group row mr-3">
+            <div class="mr-2">
+                <a href="{% url 'export' laporan.id %}"><button type="button"
+                        class="btn btn-block btn-primary btn-sm">Export</button></a>
+            </div>
+            <div class="mr-2">
+                <a href="{% url 'perubahanLaporan' laporan.id %}"><button type="button"
+                        class="btn btn-block btn-primary btn-sm">Diubah</button></a>
+            </div>
+            <div class="">
+                <a href="{% url 'ledHistori' laporan.id %}"><button type="button"
+                        class="btn btn-block btn-primary btn-sm">Buat Laporan Histori</button></a>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class="search d-flex justify-content-end">
+    <div class="form-group col-sm-4 ">
+        <div class="form-group ">
+            <div class="d-flex justify-content-end"></div>
+            {% include "led/search/searchLed.html" %}
+
+        </div>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">{{laporan.nama}}</h3>
+        <div class="card-tools">
+        </div>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body table-responsive p-0">
+        <table class="table table-hover text-nowrap">
+            <thead>
+                <tr>
+
+                    <th>No Kasus</th>
+                    <th>Tanggal Kejadian</th>
+                    <th>Tanggal Teridentifikasi</th>
+                    <th>Tanggal Input</th>
+                    <th>Tanggal Selesai</th>
+                    <th>Tanggal Update</th>
+                    <th>Jumlah Kasus</th>
+                    <th>Tipe LED</th>
+
+                    <th>Nama Pembuat</th>
+                    <th>Status</th>
+                    <th>Kode Cabang</th>
+                    <th>Kode Produk</th>
+                    <th>Nama Penemu</th>
+                    <th>Kode Kategori Kejadian</th>
+                    <th>Kode Penyebab</th>
+                    <th>Business Line</th>
+                    <th>COA biaya</th>
+                    <th>Mata Uang</th>
+                    <th>Nilai Tukar</th>
+                    <th>Kerugian Potensial</th>
+                    <th>RRA</th>
+                    <th>Recovery</th>
+                    <th>Kerugian Aktual</th>
+                    <th>Tnaggal Review</th>
+
+                    <th>Reviewer</th>
+                    <th>Hasil Review</th>
+                    <th>Keterangan Review</th>
+                    <th>Summary kejadian</th>
+                    <th>Kronologi kejadian</th>
+                    <th>Tindakan Unit Kerja</th>
+                    <th>Tindakan Perbaikan</th>
+                    <th>Dibuat Oleh</th>
+                    <th>Ditemukan Oleh</th>
+                    <th>Disetujui Oleh</th>
+                    <th>Risiko Kredit</th>
+                    <th>Review User</th>
+                    <th>Kategori x Tipe Led</th>
+                    <th>summary</th>
+                    <th>Perlu Diemail</th>
+
+
+                    <td style="padding-left: 20px;">{{DataRA.status1}}</td>
+
+
+
+
+                </tr>
+            </thead>
+            <tbody>
+                {% for data in data %}
+                <tr>
+                    <td><a href="{% url 'editLed' data.led_laporan.id %}">{{data.led_laporan.nomor_kasus}}</a></td>
+                    <td><a href=""></a>{{led_laporan.tanggal_kejadian}}</a> </td>
+                    <td>{{data.led_laporan.tanggal_teridentifikasi}}</td>
+                    <td>{{data.led_laporan.tanggal_input}}</td>
+                    <td>{{data.led_laporan.tanggal_selesai}}</td>
+                    <td>{{data.led_laporan.tanggal_update|default_if_none:""}}</td>
+                    <td>{{data.led_laporan.jumlah_kasus}}</td>
+                    <td>{{data.led_laporan.tipe_led}}</td>
+                    <td>{{data.led_laporan.nama_pembuat}}</td>
+                    <td>{{data.led_laporan.status}}</td>
+                    <td>{{data.led_laporan.kode_cabang}}</td>
+                    <td>{{data.led_laporan.kode_produk}}</td>
+                    <td>{{data.led_laporan.nama_penemu}}</td>
+                    <td>{{data.led_laporan.kode_ktg_kejadian}}</td>
+                    <td>{{data.led_laporan.kode_penyebab}}</td>
+                    <td>{{data.led_laporan.bussines_line}}</td>
+                    <td>{{data.led_laporan.coa_biaya}}</td>
+                    <td>{{data.led_laporan.mata_uang}}</td>
+                    <td>{{data.led_laporan.nilai_tukar}}</td>
+                    <td>{{data.led_laporan.kerugian_potensial}}</td>
+                    <td>{{data.led_laporan.rra}}</td>
+                    <td>{{data.led_laporan.recovery}}</td>
+                    <td>{{data.led_laporan.kerugian_aktual}}</td>
+                    <td>{{data.led_laporan.tanggal_review}}</td>
+
+
+                    <td>{{data.led_laporan.reviewer}}</td>
+                    <td>{{data.led_laporan.hasil_review}}</td>
+                    <td>{{data.led_laporan.keterangan_review}}</td>
+                    <td>{{data.led_laporan.summary_kejadian}}</td>
+                    <td>{{data.led_laporan.kronologi_kejadian}}</td>
+                    <td>{{data.led_laporan.tindakan_unit_kerja}}</td>
+                    <td>{{data.led_laporan.tindakan_perbaikan}}</td>
+                    <td>{{data.led_laporan.dibuat_oleh}}</td>
+                    <td>{{data.led_laporan.ditemukan_oleh}}</td>
+                    <td>{{data.led_laporan.disetujui_oleh}}</td>
+                    <td>{{data.led_laporan.risiko_kredit}}</td>
+                    <td>{{data.led_laporan.review_user}}</td>
+                    <td>{{data.led_laporan.chk_kknled}}</td>
+                    <td>{{data.led_laporan.chk_summ}}</td>
+                    <td>{{data.led_laporan.perlu_email}}</td>
+                    <td style="padding-left: 20px;">{{DataRA.status1}}</td>
+
+                </tr>
+                {% endfor%}
+            </tbody>
+        </table>
+    </div>
+    <!-- /.card-body -->
+</div>
+
+{% endblock container-1 %}
+{% block script-container %}
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+{% endblock script-container %}

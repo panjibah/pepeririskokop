@@ -1,0 +1,109 @@
+[{
+    "model": "led.penyebab",
+    "pk": 16,
+    "fields": {
+        "update_date": "2021-08-21",
+        "created_at": "1972-05-25T21:56:53Z",
+        "updated_at": "2013-05-29T01:09:54Z",
+        "kode_penyebab1": "01",
+        "nama_penyebab1": "Ketidakcukupan / kegagalan proses",
+        "kode_penyebab2": null,
+        "nama_penyebab2": null,
+        "kode_penyebab3": null,
+        "nama_penyebab3": null,
+        "status"        :0
+       
+
+    }  
+},
+{
+    "model": "led.penyebab",
+    "pk": 17,
+    "fields": {
+        "update_date":"2021-08-21",
+        "created_at": "1972-05-25T21:56:53Z",
+        "updated_at": "2013-05-29T01:09:54Z",
+        "kode_penyebab1": "02",
+        "nama_penyebab1": "Sumber Daya Manusia",
+        "kode_penyebab2": null,
+        "nama_penyebab2": null,
+        "kode_penyebab3": null,
+        "nama_penyebab3": null,
+        "status"        :0
+       
+
+    }  
+},{
+    "model": "led.penyebab",
+    "pk": 18,
+    "fields": {
+        "update_date": "2021-08-21",
+        "created_at": "1972-05-25T21:56:53Z",
+        "updated_at": "2013-05-29T01:09:54Z",
+        "kode_penyebab1": "03",
+        "nama_penyebab1": "Sistem & teknologi",
+        "kode_penyebab2": null,
+        "nama_penyebab2": null,
+        "kode_penyebab3": null,
+        "nama_penyebab3": null,
+        "status"        :0
+       
+
+    }  
+},
+{
+    "model": "led.penyebab",
+    "pk": 19,
+    "fields": {
+        "update_date": "2021-08-21",
+        "created_at": "1972-05-25T21:56:53Z",
+        "updated_at": "2013-05-29T01:09:54Z",
+        "kode_penyebab1": "04",
+        "nama_penyebab1": "Eksternal",
+        "kode_penyebab2": null,
+        "nama_penyebab2": null,
+        "kode_penyebab3": null,
+        "nama_penyebab3": null,
+        "status"        :0
+       
+
+    }  
+},
+{
+    "model": "led.penyebab",
+    "pk": 20,
+    "fields": {
+        "update_date": "2021-08-21",
+        "created_at": "1972-05-25T21:56:53Z",
+        "updated_at": "2013-05-29T01:09:54Z",
+        "kode_penyebab1": "01",
+        "nama_penyebab1": "Ketidakcukupan / kegagalan proses",
+        "kode_penyebab2": "01.01",
+        "nama_penyebab2": "Data",
+        "kode_penyebab3": "01.01.01",
+        "nama_penyebab3": "Sumber data informasi tidak memadai / tidak update",
+        "status"        :0
+       
+
+    }  
+},
+{
+    "model": "led.penyebab",
+    "pk": 21,
+    "fields": {
+        "update_date": "2021-08-21",
+        "created_at": "1972-05-25T21:56:53Z",
+        "updated_at": "2013-05-29T01:09:54Z",
+        "kode_penyebab1": "01",
+        "nama_penyebab1": "Ketidakcukupan / kegagalan proses",
+        "kode_penyebab2": "01.02",
+        "nama_penyebab2": "Petunjuk pelaksanaan (prosedur kerja)",
+        "kode_penyebab3": "01.02.01",
+        "nama_penyebab3": "Prosedur tidak ada",
+        "status"        :0
+       
+
+    }  
+}
+
+]

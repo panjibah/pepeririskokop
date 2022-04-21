@@ -1,0 +1,65 @@
+{% extends "base.html"%} {% load static %}{% block container-1 %}
+
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">List Led Master</h3>
+        <div class="card-tools">
+            <div class="input-group input-group-sm" style="width: 150px;">
+                <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+
+                <div class="input-group-append">
+                    <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body table-responsive p-0">
+        <table class="table table-hover text-nowrap">
+            <thead>
+                <tr>
+                    <th>No Kasus</th>
+                    <th>Tanggal Kejadian</th>
+                    <th>Tanggal Teridentifikasi</th>
+                    <th>Tanggal Input</th>
+                    <th>Tanggal Selesai</th> 
+                    <th>Tanggal Update</th>
+                    <th>Jumlah Kasus</th>
+                    <th>Nama Pembuat</th>
+                    <th>Status</th>
+                    <th>Kode Cabang</th>
+                    <th>Kode Produk</th>
+                    <th>Nama Penemu</th>
+                    <th>Kode Kategori Kejadian</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                {% for data in data %}
+                <tr>
+                    <td>{{data.nomor_kasus}}</td>
+                    <td><a href=""></a>{{data.tanggal_kejadian}}</a> </td>
+                    <td>{{data.tanggal_teridentifikasi}}</td>
+                    <td>{{data.tanggal_input}}</td>
+                    <td>{{data.tanggal_selesai}}</td>
+                    <td>{{data.tanggal_update}}</td>
+                    <td>{{data.jumlah_kasus}}</td>
+                    <td>{{data.nama_pembuat}}</td>
+
+
+                    <td style="padding-left: 20px;">{{DataRA.status1}}</td>
+
+
+                   
+                </tr>
+                {% endfor%}
+            </tbody>
+        </table>
+    </div>
+    <!-- /.card-body -->
+</div>
+
+
+
+
+{% endblock container-1 %}

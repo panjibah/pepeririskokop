@@ -1,0 +1,168 @@
+{% extends "base.html"%} {% load static %}
+{% block style-container %}
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+{% endblock style-container %}
+
+
+
+{% block page-title %}
+<h1> Detail Laporan</h1>
+{% endblock page-title %}
+
+{% block page-position %}
+<li class="breadcrumb-item">LED Temporary</li>
+<li class="breadcrumb-item"><a href="{% url 'listRpt' %}">List Laporan</a></li>
+<li class="breadcrumb-item active">{{laporan.nama}}</li>
+{% endblock page-position %}
+
+
+
+{% block container-1 %}
+
+<div class="buttonGroup d-flex justify-content-end mr-2">
+    <div class="form-group row">
+        <div class="form-group row mr-3">
+            <div class="mr-2">
+                <a href="{% url 'export' laporan.id %}"><button type="button"
+                        class="btn btn-block btn-primary btn-sm">Export</button></a>
+            </div>
+            <div class="mr-2">
+                <a href="{% url 'perubahanLaporan' laporan.id %}"><button type="button"
+                        class="btn btn-block btn-primary btn-sm">Diubah</button></a>
+            </div>
+            <div class="">
+                <a href="{% url 'ledHistori' laporan.id %}"><button type="button"
+                        class="btn btn-block btn-primary btn-sm">Buat Laporan Histori</button></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="row">
+    <div class="card col-5">
+        <div class="card-header">
+            <h3 class="card-title">Informasi tentang laporan</h3>
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body p-0">
+            <table class="table table-sm">
+                <thead>
+                    <tr>
+                        <th style="width: 10px">#</th>
+                        <th>Task</th>
+                        <th>Progress</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1.</td>
+                        <td><a href="{% url 'summRpt' laporan.id %}?summ=totalData"> Total Data</a></td>
+                        <td>
+                            {{sizeData}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2.</td>
+                        <td><a href="{% url 'summRpt' laporan.id %}?summ=belumReview">LED belum review</a></td>
+                        <td>
+                            {{laporan.ks_belumrv}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>3.</td>
+                        <td><a href="{% url 'summRpt' laporan.id %}?summ=save">LED save</a></td>
+                        <td>
+                            {{laporan.ks_save}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>4.</td>
+                        <td><a href="{% url 'summRpt' laporan.id %}?summ=submit">LED Submit</a></td>
+                        <td>
+                            {{laporan.ks_submit}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>5.</td>
+                        <td><a href="{% url 'summRpt' laporan.id %}?summ=kkTdkSesuai">Kategori Kejadian tidak sesuai</a></td>
+                        <td>
+                            {{kknCount}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>6.</td>
+                        <td><a href="{% url 'summRpt' laporan.id %}?summ=summKosong">Tidak Ada Summary</a> </td>
+                        <td>
+                            <!-- summary kejadian yang tidak diisi -->
+                            {{summNull}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>7.</td>
+                        <td><a href="{% url 'summRpt' laporan.id %}?summ=revKosong">Review Kosong </a></td>
+                        <td>
+                            
+                            <!-- hasil review -->
+                            {{summCount}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>8.</td>
+                        <!-- perlu dihapus yang didaptkan dari hasil review ormis -->
+                        <td><a href="{% url 'summRpt' laporan.id %}?summ=dihapus">Perlu dihapus </a></td>
+                        <td>
+                            {{perluDihapus}}
+                        </td>
+                    </tr>
+
+
+                </tbody>
+            </table>
+        </div>
+        <!-- /.card-body -->
+    </div>
+    <div class="card col-6 h-50">
+        <div class="card-header">
+            <h3 class="card-title">Kerugian</h3>
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body p-0">
+            <table class="table table-sm">
+                <thead>
+                    <tr>
+                        <th style="width: 10px">#</th>
+                        <th class="col-6">Jenis Kerugian</th>
+                        <th class="col-3">Kategori Kejadian</th>
+                        <th class="col-4">Total</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for kerugian,tipeKerugian in kerugian %}
+                    <tr>
+                        <td>{{forloop.counter}}</td>
+
+                        <td>{{tipeKerugian}}</td>
+                        <td><a href="{% url 'kerugian' laporan.id forloop.counter %}?krg=nama_kategori3 & ledId= ">{{kerugian.nama_kategori1}}</a></td>
+                        <td>
+                            Rp.{{kerugian.sum}}
+                        </td>
+                    </tr>
+                    {% endfor %}
+
+
+
+
+                </tbody>
+            </table>
+        </div>
+        <!-- /.card-body -->
+    </div>
+</div>
+{% endblock container-1 %}
+{% block script-container %}
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+{% endblock script-container %}

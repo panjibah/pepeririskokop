@@ -1,0 +1,59 @@
+{% extends "base.html"%} {% load static %}
+
+{% block page-title %}
+<h1>List Laporan Histori </h1>
+{% endblock page-title %}
+{% block page-position %}
+<li class="breadcrumb-item">Laporan Histori</li>
+
+{% endblock page-position %}
+
+{% block container-1 %}
+
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">Led Histori</h3>
+        <div class="card-tools">
+            <div class="input-group input-group-sm" style="width: 150px;">
+                <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+
+                <div class="input-group-append">
+                    <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body table-responsive p-0">
+        <table class="table table-hover text-nowrap">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Judul</th>
+                    <th>Kategori</th>
+                    <th>Tanggal Laporan</th>
+                    <th>Tanggal Histori</th> 
+                </tr>
+            </thead>
+            <tbody>
+                {% for data in ledHistori %}
+                <tr>
+                    
+                    <td>{{data.numrow}} </td>
+                    <!-- <td><a href="{% url 'showHistori' data.id %}?tglHistori={{data.tglhistori| date:'Y-m-d H:i:s'}} ">{{data.nama}}</a></td> -->
+                    <td><a href="{% url 'showHistori' data.id %}?hsId={{data.historis_id}}">{{data.nama}}</a></td>
+                    <td>{{data.ktname}}</td>
+                    <td>{{data.tgllaporan}}</td>
+                    <td>{{data.tglhistori}}</td>                
+                </tr>
+                {% endfor%}
+            </tbody>
+        </table>
+    </div>
+    <!-- /.card-body -->
+</div>
+
+
+
+
+{% endblock container-1 %}
